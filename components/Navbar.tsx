@@ -45,9 +45,14 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDialog }) => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link
           to="/"
-          className="text-2xl font-serif tracking-tight text-zinc-900"
+          className="text-2xl font-serif tracking-tight text-zinc-900 flex items-center"
         >
-          Devific
+          <img
+            src="/logo.png"
+            alt="Devific Logo"
+            className="inline-block h-7 w-auto"
+          />
+          <span>evific</span>
         </Link>
 
         <div className="hidden md:flex items-center space-x-12">

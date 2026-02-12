@@ -9,8 +9,16 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-24">
           <div className="col-span-12 lg:col-span-6 space-y-6">
-            <Link to="/" className="text-3xl font-serif text-zinc-900">
-              Devific
+            <Link
+              to="/"
+              className="text-3xl font-serif text-zinc-900 flex items-center"
+            >
+              <img
+                src="/logo.png"
+                alt="Devific Logo"
+                className="inline-block h-7 w-auto"
+              />
+              <span>evific</span>
             </Link>
             <p className="text-lg text-zinc-500 max-w-sm leading-relaxed font-light">
               Thoughtful web development for businesses that value clarity,
