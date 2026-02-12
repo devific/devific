@@ -20,27 +20,22 @@ const Projects: React.FC = () => {
 
   const others: Project[] = [
     {
-      name: "Nexus Labs",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
-      url: "#",
-      description:
-        "A venture capital platform designed for high-speed analysis.",
+      name: "Ashton Sofas",
+      image: "/projects/ashton-bg.jpg",
+      url: "//ashton.gavn.in",
+      description: "",
     },
     {
-      name: "Vellum Stationery",
-      image:
-        "https://images.unsplash.com/photo-1586075010620-2255bc972183?q=80&w=1000&auto=format&fit=crop",
-      url: "#",
-      description:
-        "Minimalist boutique store with a focus on tactile typography.",
+      name: "Sea Queen",
+      image: "/projects/sea-queen-bg.jpg",
+      url: "//dev.gavn.in/sea-queen",
+      description: "",
     },
     {
-      name: "Stellar Dashboard",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bbbda540257a?q=80&w=1000&auto=format&fit=crop",
-      url: "#",
-      description: "Data visualization tool for growing SaaS startups.",
+      name: "Handstand",
+      image: "/projects/handstand-bg.jpg",
+      url: "//dev.gavn.in/handstand",
+      description: "",
     },
   ];
 
@@ -69,7 +64,7 @@ const Projects: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="group relative mb-12 overflow-hidden rounded-[40px] bg-zinc-100 aspect-[16/9] md:aspect-[21/9]"
+          className="group relative mb-12 overflow-hidden rounded-[40px] bg-zinc-100 aspect-[16/9] md:aspect-[21/9] hidden"
         >
           <img
             src={highlight.image}
@@ -95,7 +90,7 @@ const Projects: React.FC = () => {
         </motion.div>
 
         {/* Other Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 hidden">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {others.map((project, idx) => (
             <motion.div
               key={idx}
@@ -117,7 +112,14 @@ const Projects: React.FC = () => {
                   <h4 className="text-2xl font-serif text-zinc-900">
                     {project.name}
                   </h4>
-                  <ArrowUpRight className="w-5 h-5 text-zinc-300 group-hover:text-indigo-600 transition-colors" />
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-500 group-hover:text-indigo-600 transition-colors"
+                  >
+                    <ArrowUpRight className="w-5 h-5 text-zinc-300 group-hover:text-indigo-600 transition-colors" />
+                  </a>
                 </div>
                 <p className="text-zinc-500 font-light leading-relaxed">
                   {project.description}

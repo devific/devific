@@ -21,7 +21,7 @@ const Home: React.FC<HomeProps> = ({ onOpenDialog }) => {
       <Projects />
       <Services />
       <Process />
-      <WhyUs />
+      {false && <WhyUs />}
       <CTA onOpenDialog={onOpenDialog} />
     </section>
   );
