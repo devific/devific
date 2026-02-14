@@ -20,21 +20,16 @@ const Projects: React.FC = () => {
 
   const others: Project[] = [
     {
-      name: "Ashton Sofas",
-      image: "/projects/ashton-bg.jpg",
-      url: "//ashton.gavn.in",
-      description: "",
-    },
-    {
-      name: "Sea Queen",
-      image: "/projects/sea-queen-bg.jpg",
-      url: "//dev.gavn.in/sea-queen",
+      name: "Luminati",
+      image:
+        "https://framerusercontent.com/images/pg6PgJ51RzrHtafQBYRKoJ2D1Q.jpg?scale-down-to=1024&width=5472&height=3648",
+      url: "//luminati.framer.website/",
       description: "",
     },
     {
       name: "Handstand",
       image: "/projects/handstand-bg.jpg",
-      url: "//dev.gavn.in/handstand",
+      url: "//go.devific.in/handstand",
       description: "",
     },
   ];

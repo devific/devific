@@ -14,9 +14,7 @@ interface TrustedByProps {
 
 export function TrustedBy({
   logos = [
-    { name: "Ashton Sofas", src: "/logos/ashton-sofas.png" },
     { name: "Digiket Solution", src: "/logos/digiket-solution.png" },
-    { name: "Sea Queen", src: "/logos/sea-queen.png" },
     { name: "Luminati", src: "/logos/luminati.png" },
   ],
   className,
