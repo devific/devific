@@ -34,59 +34,30 @@ export function TrustedBy({
   }, [logos]);
 
   return (
-    <section className={cn("w-full py-24", className)}>
-      <div className="mx-auto max-w-6xl px-6">
-        {/* Section header */}
-        <div className="mb-12 max-w-xl mx-auto">
-          <h2 className="mb-3 text-xs font-medium text-muted-foreground text-center uppercase opacity-70">
+    <section className="py-10 border-y border-zinc-100 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ duration: 1 }}
+          className="flex flex-col md:flex-row items-center justify-between gap-12"
+        >
+          <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.4em] whitespace-nowrap">
             Trusted by
-          </h2>
-        </div>
-
-        {/* Logos */}
-        <div ref={containerRef} className="relative overflow-hidden">
-          <motion.div
-            ref={trackRef}
-            className={cn(
-              "flex items-center gap-14",
-              !shouldMarquee && "flex-wrap justify-center ",
-            )}
-            animate={
-              shouldMarquee
-                ? {
-                    x: ["0%", "-50%"],
-                  }
-                : undefined
-            }
-            transition={
-              shouldMarquee
-                ? {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 30,
-                    ease: "linear",
-                  }
-                : undefined
-            }
-          >
-            {/* First set */}
-            {logos.map((logo) => (
-              <LogoItem key={logo.name} logo={logo} />
+          </span>
+          <div className="flex flex-wrap justify-center md:justify-end gap-x-16 gap-y-8 opacity-30 grayscale hover:opacity-100 transition-opacity duration-700">
+            {logos.map((logo, i) => (
+              <LogoItem key={i} logo={logo} />
             ))}
-
-            {/* Duplicate set for seamless marquee */}
-            {shouldMarquee &&
-              logos.map((logo) => (
-                <LogoItem key={`${logo.name}-duplicate`} logo={logo} />
-              ))}
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 }
 
-function LogoItem({ logo }: { logo: Logo }) {
+function LogoItem({ logo, key }: { logo: Logo; key: number }) {
   return (
     <div className="flex h-12 items-center justify-center">
       <img

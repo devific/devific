@@ -109,6 +109,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ isOpen, onClose }) => {
                 data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
                 className="space-y-6"
+                netlify
               >
                 {/* Netlify required hidden fields */}
                 <input type="hidden" name="form-name" value="project-inquiry" />

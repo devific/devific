@@ -19,17 +19,6 @@ const Hero: React.FC<HeroProps> = ({ onOpenDialog }) => {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-12 gap-y-12 h-full items-center">
         <div className="col-span-12 lg:col-span-8 space-y-8">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center px-3 py-1 bg-indigo-50 border border-indigo-100 rounded-full"
-          >
-            <span className="text-xs font-semibold text-indigo-600 uppercase tracking-widest">
-              Web Development Studio
-            </span>
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
