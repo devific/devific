@@ -7,7 +7,6 @@ import Process from "../components/Process";
 import WhyUs from "../components/WhyUs";
 import CTA from "../components/CTA";
 import { TrustedBy } from "@/components/TrustedBy";
-import Meaning from "@/components/Meaning";
 
 interface HomeProps {
   onOpenDialog: () => void;
@@ -18,7 +17,6 @@ const Home: React.FC<HomeProps> = ({ onOpenDialog }) => {
     <section className="overflow-x-hidden">
       <Hero onOpenDialog={onOpenDialog} />
       <TrustedBy />
-      <Meaning />
       <About />
       <Projects />
       <Services />
