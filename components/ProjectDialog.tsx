@@ -45,6 +45,8 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
+  // FIX 1: Use URLSearchParams + application/x-www-form-urlencoded
+  // FIX 2: Manually include projectType since it comes from state, not a real input
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -52,10 +54,14 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ isOpen, onClose }) => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // Ensure the state-driven projectType is included
+    formData.set("projectType", projectType);
+
     try {
       await fetch("/", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
       });
 
       setIsSubmitted(true);
@@ -102,6 +108,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ isOpen, onClose }) => {
                 </p>
               </div>
 
+              {/* FIX 3: Removed invalid `netlify` JSX prop — data-netlify="true" is sufficient */}
               <form
                 name="project-inquiry"
                 method="POST"
@@ -109,7 +116,6 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ isOpen, onClose }) => {
                 data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
                 className="space-y-6"
-                netlify
               >
                 {/* Netlify required hidden fields */}
                 <input type="hidden" name="form-name" value="project-inquiry" />
