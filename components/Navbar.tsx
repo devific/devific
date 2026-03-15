@@ -48,11 +48,10 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDialog }) => {
           className="text-2xl font-serif tracking-tight text-zinc-900 flex items-center"
         >
           <img
-            src="/logo.png"
+            src="/logo.svg"
             alt="Devific Logo"
             className="inline-block h-7 w-auto"
           />
-          <span>evific</span>
         </Link>
 
         <div className="hidden md:flex items-center space-x-12">
@@ -68,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDialog }) => {
           ))}
           <button
             onClick={onOpenDialog}
-            className="px-5 py-2.5 bg-zinc-900 text-white text-sm font-medium rounded-full hover:bg-indigo-600 transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-zinc-200"
+            className="px-5 py-2.5  bg-[#5356c9] hover:bg-[#5356c9]/80 rounded-lg rounded-tr-[1.5rem]  text-white text-sm font-medium transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-zinc-200"
           >
             Start a project
           </button>

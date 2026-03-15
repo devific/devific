@@ -47,7 +47,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenDialog }) => {
           >
             <button
               onClick={onOpenDialog}
-              className="group flex items-center px-8 py-4 bg-zinc-900 text-white rounded-full text-lg font-medium hover:bg-indigo-600 transition-all shadow-xl shadow-zinc-200"
+              className="group flex items-center px-8 py-4 text-white rounded-lg rounded-tr-[2.5rem] text-lg font-medium bg-[#5356c9] hover:bg-[#5356c9]/80 transition-all shadow-xl shadow-zinc-200"
             >
               Start a project
               <ArrowUpRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

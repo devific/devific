@@ -3,6 +3,7 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "DM Serif Display", serif;
+  --color-brand: #5356c9;
 }
 
 @layer base {

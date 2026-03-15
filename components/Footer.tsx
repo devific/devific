@@ -14,11 +14,10 @@ const Footer: React.FC = () => {
               className="text-3xl font-serif text-zinc-900 flex items-center"
             >
               <img
-                src="/logo.png"
+                src="/logo.svg"
                 alt="Devific Logo"
                 className="inline-block h-7 w-auto"
               />
-              <span>evific</span>
             </Link>
             <p className="text-lg text-zinc-500 max-w-sm leading-relaxed font-light">
               Thoughtful web development for businesses that value clarity,
