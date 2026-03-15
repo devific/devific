@@ -15,7 +15,7 @@ const CTA: React.FC<CTAProps> = ({ onOpenDialog }) => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: false }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-zinc-900 rounded-[80px] p-16 md:p-24 text-center relative overflow-hidden"
+          className="bg-zinc-900 rounded-[80px_400px_80px_80px] p-16 md:p-24 text-center relative overflow-hidden"
         >
           {/* Decorative background elements */}
           <motion.div
@@ -54,7 +54,7 @@ const CTA: React.FC<CTAProps> = ({ onOpenDialog }) => {
               viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.6 }}
               onClick={onOpenDialog}
-              className="group relative inline-flex items-center py-4 px-8 lg:px-12 lg:py-6 bg-white text-zinc-900 rounded-full text-xl font-medium overflow-hidden transition-all"
+              className="group relative inline-flex items-center py-4 px-8 lg:px-12 lg:py-6  text-white bg-[#5356c9] hover:bg-[#5356c9]/80 rounded-[12px_60px_12px_12px] text-xl font-medium overflow-hidden transition-all"
             >
               <span className="relative z-10 flex items-center">
                 Start a conversation

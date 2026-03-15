@@ -139,7 +139,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ isOpen, onClose }) => {
                       type="text"
                       name="name"
                       placeholder="Jane Doe"
-                      className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all font-light"
+                      className="rounded-[12px_60px_12px_12px] w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all font-light"
                     />
                   </div>
 
@@ -152,7 +152,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ isOpen, onClose }) => {
                       type="email"
                       name="email"
                       placeholder="jane@company.com"
-                      className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all font-light"
+                      className="rounded-[12px_60px_12px_12px] w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all font-light"
                     />
                   </div>
                 </div>
@@ -165,7 +165,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ isOpen, onClose }) => {
                     <button
                       type="button"
                       onClick={() => setIsSelectOpen(!isSelectOpen)}
-                      className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all font-light text-zinc-600 flex items-center justify-between"
+                      className="rounded-[12px_60px_12px_12px] w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all font-light text-zinc-600 flex items-center justify-between"
                     >
                       <span>{projectType}</span>
                       <ChevronDown
@@ -192,7 +192,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ isOpen, onClose }) => {
                                 setProjectType(option);
                                 setIsSelectOpen(false);
                               }}
-                              className={`w-full text-left px-4 py-3 hover:bg-zinc-50 transition-colors text-sm ${
+                              className={`w-full text-left px-4 py-3 hover:bg-zinc-50 transition-colors text-sm  ${
                                 projectType === option
                                   ? "text-indigo-600 bg-indigo-50/50"
                                   : "text-zinc-600"
@@ -216,14 +216,14 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ isOpen, onClose }) => {
                     rows={4}
                     name="message"
                     placeholder="Tell us a bit about your goals..."
-                    className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all font-light resize-none"
+                    className="rounded-[12px_60px_12px_12px] w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all font-light resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 bg-zinc-900 text-white rounded-xl font-medium hover:bg-indigo-600 transition-all flex items-center justify-center disabled:opacity-50"
+                  className="w-full py-4 text-white rounded-[12px_60px_12px_12px] font-medium bg-[#5356c9] hover:bg-[#5356c9]/800 transition-all flex items-center justify-center disabled:opacity-50"
                 >
                   {loading ? (
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

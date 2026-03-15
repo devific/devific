@@ -67,7 +67,7 @@ const Projects: React.FC = () => {
                 index % 2 !== 0 ? "md:mt-32" : "",
               )}
             >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[40px] bg-zinc-100 mb-8">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[20px_100px_20px_20px] bg-zinc-100 mb-8">
                 <motion.img
                   src={project.image}
                   alt={project.name}
