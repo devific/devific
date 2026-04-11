@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -9,9 +9,14 @@ import ProjectDialog from "./components/ProjectDialog";
 import CustomCursor from "./components/CustomCursor";
 import "./index.css";
 import ScrollProgressBar from "./components/ScrollProgressBar";
+import Clarity from "@microsoft/clarity";
 
 const App: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  useEffect(() => {
+    Clarity.init("qacye282tx");
+  }, []);
 
   return (
     <Router>
