@@ -63,9 +63,6 @@ const ProjectDetails: React.FC = () => {
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-24"
         >
           <div className="lg:col-span-8">
-            <span className="text-xs font-semibold text-indigo-600 uppercase tracking-[0.3em] mb-6 block">
-              {project.category}
-            </span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-zinc-900 leading-tight tracking-tighter mb-8">
               {project.title}
             </h1>
