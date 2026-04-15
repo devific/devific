@@ -1,7 +1,6 @@
 import { request, gql } from "graphql-request";
 
 const HYGRAPH_API_URL = import.meta.env.VITE_HYGRAPH_URL;
-const HYGRAPH_TOKEN = import.meta.env.VITE_HYGRAPH_TOKEN;
 
 export interface Project {
   title: string;
@@ -22,9 +21,6 @@ export interface Project {
 
 const getHeaders = () => {
   const headers: Record<string, string> = {};
-  if (HYGRAPH_TOKEN) {
-    headers["Authorization"] = `Bearer ${HYGRAPH_TOKEN}`;
-  }
   return headers;
 };
 
@@ -35,7 +31,12 @@ export const fetchProjects = async (): Promise<Project[]> => {
         title
         slug
         coverImage {
-          url
+          url(
+            transformation: {
+              image: { resize: { width: 800 }, quality: { value: 70 } }
+              document: { output: { format: webp } }
+            }
+          )
         }
         category
         excerpt
@@ -67,10 +68,20 @@ export const fetchProjectBySlug = async (
         title
         slug
         coverImage {
-          url
+          url(
+            transformation: {
+              image: { resize: { width: 800 }, quality: { value: 70 } }
+              document: { output: { format: webp } }
+            }
+          )
         }
         images {
-          url
+          url(
+            transformation: {
+              image: { resize: { width: 800 }, quality: { value: 70 } }
+              document: { output: { format: webp } }
+            }
+          )
         }
         completedAt
         category
