@@ -7,6 +7,7 @@ import Terms from "./pages/Terms";
 import ProjectDetails from "./pages/ProjectDetails";
 import Footer from "./components/Footer";
 import ProjectDialog from "./components/ProjectDialog";
+import Contact from "./pages/Contact";
 
 const App: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -24,6 +25,7 @@ const App: React.FC = () => {
             <Route path="/project/:slug" element={<ProjectDetails />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
         <Footer />
