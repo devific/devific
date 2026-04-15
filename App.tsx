@@ -7,15 +7,13 @@ import Terms from "./pages/Terms";
 import ProjectDetails from "./pages/ProjectDetails";
 import Footer from "./components/Footer";
 import ProjectDialog from "./components/ProjectDialog";
-import CustomCursor from "./components/CustomCursor";
 
 const App: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
     <Router>
-      <div className="min-h-screen selection:bg-indigo-100 selection:text-indigo-900 flex flex-col overflow-x-hidden bg-white cursor-none">
-        <CustomCursor />
+      <div className="min-h-screen selection:bg-indigo-100 selection:text-indigo-900 flex flex-col overflow-x-hidden bg-white">
         <Navbar onOpenDialog={() => setIsDialogOpen(true)} />
         <main className="flex-grow overflow-x-hidden">
           <Routes>

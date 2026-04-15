@@ -14,10 +14,4 @@
   body {
     @apply font-sans text-zinc-900 antialiased;
   }
-  button,
-  a,
-  [role="button"],
-  .cursor-pointer {
-    cursor: none !important;
-  }
 }
