@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { fetchProjectBySlug, Project } from "../services/hygraph";
+import ImageCarousel from "@/components/ImageCarousel";
 
 const ProjectDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -129,29 +130,7 @@ const ProjectDetails: React.FC = () => {
         )}
 
         {project.images && project.images.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {project.images.map((image, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className={`rounded-[32px] overflow-hidden ${
-                  index % 3 === 0
-                    ? "md:col-span-2 aspect-[16/9]"
-                    : "aspect-square"
-                }`}
-              >
-                <img
-                  src={image.url}
-                  alt={`${project.title} gallery ${index + 1}`}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </motion.div>
-            ))}
-          </div>
+          <ImageCarousel images={project.images} title={project.title} />
         )}
       </div>
     </div>
