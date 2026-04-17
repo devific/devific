@@ -13,5 +13,18 @@
 
   body {
     @apply font-sans text-zinc-900 antialiased;
+    background-color: #ffffff;
+    color: #18181b;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
   }
 }

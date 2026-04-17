@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.2.2",
     "@types/react": "^19.2.14",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
