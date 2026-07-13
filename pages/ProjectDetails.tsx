@@ -2,33 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { fetchProjectBySlug, Project } from "../services/hygraph";
+import { website } from "../generated";
 import ImageCarousel from "@/components/ImageCarousel";
 
 const ProjectDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [project, setProject] = useState<Project | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const project = website.projects.find((p) => p.slug === slug);
 
   useEffect(() => {
-    const loadProject = async () => {
-      if (!slug) return;
-      setIsLoading(true);
-      const data = await fetchProjectBySlug(slug);
-      setProject(data);
-      setIsLoading(false);
-    };
-    loadProject();
     window.scrollTo(0, 0);
   }, [slug]);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center pt-24">
-        <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
-      </div>
-    );
-  }
+
 
   if (!project) {
     return (

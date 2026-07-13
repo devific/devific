@@ -3,23 +3,12 @@ import { motion } from "motion/react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "../utils";
-import { fetchProjects, Project } from "../services/hygraph";
+import { website } from "../generated";
 
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const projects = website.projects;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const loadProjects = async () => {
-      setIsLoading(true);
-      const data = await fetchProjects();
-      setProjects(data);
-      setIsLoading(false);
-    };
-    loadProjects();
-  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -54,16 +43,7 @@ const Projects: React.FC = () => {
     return "0%";
   };
 
-  if (isLoading) {
-    return (
-      <section
-        id="projects"
-        className="py-32 bg-zinc-50 overflow-hidden min-h-[800px] flex items-center justify-center"
-      >
-        <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
-      </section>
-    );
-  }
+
 
   if (projects.length === 0) {
     return (
