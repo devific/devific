@@ -8,7 +8,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Load environment variables
-dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 dotenv.config();
 
 const HYGRAPH_API_URL = process.env.VITE_HYGRAPH_URL;
