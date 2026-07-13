@@ -1,14 +1,15 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import * as dotenv from 'dotenv';
-import { z } from 'zod';
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import * as dotenv from "dotenv";
+import { z } from "zod";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Load environment variables
-dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
+dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
+dotenv.config();
 
 const HYGRAPH_API_URL = process.env.VITE_HYGRAPH_URL;
 
@@ -24,9 +25,13 @@ const projectSchema = z.object({
   coverImage: z.object({
     url: z.string().url(),
   }),
-  images: z.array(z.object({
-    url: z.string().url(),
-  })).optional(),
+  images: z
+    .array(
+      z.object({
+        url: z.string().url(),
+      }),
+    )
+    .optional(),
   completedAt: z.string().optional().nullable(),
   category: z.string(),
   excerpt: z.string(),
@@ -77,27 +82,29 @@ async function fetchProjects() {
 
   console.log("Fetching projects from Hygraph...");
   const response = await fetch(HYGRAPH_API_URL!, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
     body: JSON.stringify({ query }),
   });
 
   if (!response.ok) {
-    throw new Error(`Hygraph HTTP error: ${response.status} ${response.statusText}`);
+    throw new Error(
+      `Hygraph HTTP error: ${response.status} ${response.statusText}`,
+    );
   }
 
   const json = await response.json();
-  
+
   if (json.errors) {
     console.error("GraphQL errors:", json.errors);
     throw new Error("GraphQL returned errors");
   }
 
   const parsed = responseSchema.safeParse(json);
-  
+
   if (!parsed.success) {
     console.error("❌ Data validation failed!");
     console.error(parsed.error.format());
@@ -110,18 +117,18 @@ async function fetchProjects() {
 async function generate() {
   try {
     const data = await fetchProjects();
-    
-    const generatedDir = path.resolve(__dirname, '../generated');
+
+    const generatedDir = path.resolve(__dirname, "../generated");
     if (!fs.existsSync(generatedDir)) {
       fs.mkdirSync(generatedDir, { recursive: true });
     }
 
     // Write JSON
     fs.writeFileSync(
-      path.resolve(generatedDir, 'website.json'),
-      JSON.stringify(data, null, 2)
+      path.resolve(generatedDir, "website.json"),
+      JSON.stringify(data, null, 2),
     );
-    
+
     // Write Types
     const typesContent = `// Auto-generated file. Do not edit manually.
 
@@ -146,7 +153,7 @@ export interface WebsiteData {
   projects: Project[];
 }
 `;
-    fs.writeFileSync(path.resolve(generatedDir, 'types.ts'), typesContent);
+    fs.writeFileSync(path.resolve(generatedDir, "types.ts"), typesContent);
 
     // Write exported data TS
     const websiteContent = `// Auto-generated file. Do not edit manually.
@@ -155,14 +162,14 @@ import type { WebsiteData } from './types';
 
 export const website = data as WebsiteData;
 `;
-    fs.writeFileSync(path.resolve(generatedDir, 'website.ts'), websiteContent);
+    fs.writeFileSync(path.resolve(generatedDir, "website.ts"), websiteContent);
 
     // Write index TS
     const indexContent = `// Auto-generated file. Do not edit manually.
 export * from './types';
 export * from './website';
 `;
-    fs.writeFileSync(path.resolve(generatedDir, 'index.ts'), indexContent);
+    fs.writeFileSync(path.resolve(generatedDir, "index.ts"), indexContent);
 
     console.log("✅ Successfully generated build-time CMS data!");
   } catch (err) {
